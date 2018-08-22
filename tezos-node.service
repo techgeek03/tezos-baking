@@ -3,15 +3,15 @@
 
 [Unit]
 Description     = Tezos Node Service
-Documentation	  = http://tezos.gitlab.io/betanet/
-Wants           = network-online.target openvpn-client@<vpnprovider>.service
-After           = network-online.target openvpn-client@<vpnprovider>.service 
+Documentation	= http://tezos.gitlab.io/betanet/
+Wants           = network-online.target
+After           = network-online.target 
 
 [Service]
-User            = baker
-Group		= baker
-WorkingDirectory= /home/baker/
-ExecStart	= /home/baker/tezos/tezos-node run --bootstrap-threshold=1
+User            = tezos
+Group		    = tezos
+WorkingDirectory= /home/tezos/
+ExecStart	    = /home/tezos/tezos/tezos-node run --bootstrap-threshold=1
 Restart         = on-failure
 
 [Install]

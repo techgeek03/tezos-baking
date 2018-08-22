@@ -3,16 +3,16 @@
 
 [Unit]
 Description     = Tezos Baker Service
-Wants           = network-online.target openvpn-client@<vpnprovider>.service 
-BindsTo		= tezos-node.service
+Wants           = network-online.target 
+BindsTo		    = tezos-node.service
 After           = tezos-node.service
 
 [Service]
-User            = baker
-Group		= baker
-WorkingDirectory= /home/baker/
+User            = tezos
+Group		    = tezos
+WorkingDirectory= /home/tezos/
 ExecStartPre	= /bin/sleep 1
-ExecStart       = /home/baker/tezos/tezos-baker-002-PsYLVpVv run with local node /home/baker/.tezos-node ledger_bakerone_ed_0_0
+ExecStart       = /home/tezos/tezos/tezos-baker-002-PsYLVpVv run with local node /home/tezos/.tezos-node ledger_bakerone_ed_0_0
 Restart         = on-failure
 
 [Install]
